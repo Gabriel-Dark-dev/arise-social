@@ -1,0 +1,651 @@
+:root {
+    /* ===== Cores — Primárias ===== */
+    --color-primary: #1d4ed8;
+    --color-primary-dark: #1e3a8a;
+
+    /* ===== Cores — Secundárias ===== */
+    --color-secondary: #16a34a;
+    --color-secondary-dark: #15803d;
+
+    /* ===== Cor de destaque (alertas, chamadas de ação) ===== */
+    --color-accent: #f59e0b;
+
+    /* ===== Cor de erro (validação de formulário) ===== */
+    --color-error: #dc2626;
+
+    /* ===== Cores — Neutras ===== */
+    --color-neutral-white: #ffffff;
+    --color-neutral-100: #f4f6f8;
+    --color-neutral-300: #cbd5e1;
+    --color-neutral-500: #64748b;
+    --color-neutral-700: #334155;
+    --color-neutral-900: #1e293b;
+
+    /* ===== Tipografia — escala modular ===== */
+    --font-family-base: 'Segoe UI', Arial, sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.75rem;
+    --font-size-2xl: 2.5rem;
+
+    /* ===== Espaçamento — escala modular baseada em 8px ===== */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2rem;
+    --space-6: 3rem;
+
+    /* ===== Grid ===== */
+    --grid-columns: 12;
+    --grid-gap: var(--space-4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    color: var(--color-neutral-700);
+    background-color: var(--color-neutral-100);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-white);
+    padding: var(--space-4) var(--space-6);
+}
+
+header h1 {
+    font-size: var(--font-size-2xl);
+}
+
+header p {
+    color: var(--color-neutral-300);
+    margin-top: var(--space-1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+    padding: 0;
+}
+
+nav a {
+    color: var(--color-neutral-white);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--color-secondary);
+}
+
+main {
+    max-width: 900px;
+    margin: var(--space-5) auto;
+    padding: 0 var(--space-3);
+}
+
+main h2 {
+    color: var(--color-neutral-900);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-2);
+}
+
+section {
+    background-color: var(--color-neutral-white);
+    padding: var(--space-4);
+    border-radius: 8px;
+    margin-bottom: var(--space-3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+section h3 {
+    color: var(--color-neutral-900);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+}
+
+form {
+    background-color: var(--color-neutral-white);
+    padding: var(--space-4);
+    border-radius: 8px;
+}
+
+fieldset {
+    border: 1px solid var(--color-neutral-300);
+    border-radius: 8px;
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+legend {
+    font-weight: bold;
+    color: var(--color-primary);
+    padding: 0 var(--space-2);
+}
+
+form div {
+    margin-bottom: var(--space-3);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--space-2);
+    border: 1px solid var(--color-neutral-300);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+}
+
+input[type="checkbox"] {
+    margin-right: var(--space-2);
+}
+
+button {
+    padding: var(--space-2) var(--space-4);
+    border: none;
+    border-radius: 6px;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    margin-right: var(--space-2);
+}
+
+button[type="submit"] {
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-white);
+}
+
+button[type="reset"] {
+    background-color: var(--color-neutral-300);
+    color: var(--color-neutral-700);
+}
+
+footer {
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-white);
+    text-align: center;
+    padding: var(--space-3);
+    margin-top: var(--space-5);
+}
+
+.hero img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+section img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: var(--space-2);
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    main {
+        margin: var(--space-3) auto;
+    }
+}
+
+/* ============================================================
+   SISTEMA DE GRID — 12 colunas, mobile-first
+   ============================================================ */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: var(--grid-gap);
+}
+
+/* Mobile-first: por padrão, todo item ocupa a largura total (12/12) */
+.col-12 { grid-column: span 12; }
+.col-6  { grid-column: span 12; }
+.col-4  { grid-column: span 12; }
+.col-3  { grid-column: span 12; }
+
+/* ===== Breakpoint 1: 320px — celulares pequenos ===== */
+@media (min-width: 320px) {
+    header h1 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* ===== Breakpoint 2: 480px — celulares grandes ===== */
+@media (min-width: 480px) {
+    nav ul {
+        flex-direction: row;
+    }
+    header h1 {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+/* ===== Breakpoint 3: 768px — tablets ===== */
+@media (min-width: 768px) {
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 6; }
+}
+
+/* ===== Breakpoint 4: 1024px — desktops ===== */
+@media (min-width: 1024px) {
+    .col-4 { grid-column: span 4; }
+    .col-3 { grid-column: span 3; }
+    main {
+        max-width: 1000px;
+    }
+}
+
+/* ===== Breakpoint 5: 1280px — telas grandes / desktops panorâmicos ===== */
+@media (min-width: 1280px) {
+    main {
+        max-width: 1200px;
+    }
+}
+
+/* ============================================================
+   FLEXBOX — alinhamento interno dos componentes
+   ============================================================ */
+
+/* ===== Módulo: Cabeçalho (header) ===== */
+.header-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* ===== Módulo: Linhas de checkbox (checkbox + label) ===== */
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.checkbox-row label {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+/* ===== Módulo: Ações do formulário (botões) ===== */
+.form-actions {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* ============================================================
+   NAVEGAÇÃO — menu hambúrguer (mobile) + dropdown (desktop)
+   ============================================================ */
+
+/* ===== Botão hambúrguer — visível por padrão (mobile) ===== */
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--color-neutral-white);
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    padding: var(--space-1);
+}
+
+/* ===== Menu — escondido por padrão no mobile até ser aberto ===== */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    gap: var(--space-2);
+    padding: 0;
+    margin-top: var(--space-2);
+}
+
+/* Classe adicionada via JavaScript ao clicar no hambúrguer */
+.nav-menu.is-open {
+    display: flex;
+}
+
+.nav-menu a {
+    color: var(--color-neutral-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--color-secondary);
+}
+
+/* ===== Submenu (dropdown) — no mobile, some junto quando o menu abre ===== */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown {
+    list-style: none;
+    padding-left: var(--space-3);
+    margin-top: var(--space-1);
+    display: none;
+}
+
+.nav-menu.is-open .has-dropdown .dropdown {
+    display: block;
+}
+
+/* ===== A partir de 768px: menu horizontal, hambúrguer some, dropdown vira hover ===== */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--color-neutral-white);
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding: var(--space-2);
+        min-width: 240px;
+        flex-direction: column;
+        gap: var(--space-1);
+        margin-top: var(--space-2);
+        z-index: 20;
+        opacity: 0;
+        transform: translateY(-6px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .has-dropdown:hover .dropdown,
+    .has-dropdown:focus-within .dropdown {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .dropdown a {
+        color: var(--color-neutral-900);
+        font-weight: 400;
+    }
+
+    .dropdown a:hover {
+        color: var(--color-primary);
+    }
+}
+
+/* ============================================================
+   ESTADOS INTERATIVOS — botões e validação visual de formulário
+   ============================================================ */
+
+/* ===== Botão "Enviar Cadastro" ===== */
+button[type="submit"] {
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-white);
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color-secondary-dark);
+}
+
+button[type="submit"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.35);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.97);
+}
+
+button[type="submit"]:disabled {
+    background-color: var(--color-neutral-300);
+    color: var(--color-neutral-500);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===== Botão "Limpar" ===== */
+button[type="reset"] {
+    background-color: var(--color-neutral-300);
+    color: var(--color-neutral-700);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+button[type="reset"]:hover {
+    background-color: var(--color-neutral-500);
+    color: var(--color-neutral-white);
+}
+
+button[type="reset"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.35);
+}
+
+button[type="reset"]:active {
+    transform: scale(0.97);
+}
+
+/* ===== Feedback visual dos campos do formulário ===== */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15);
+}
+
+/* Só aplica cor de erro/sucesso depois que o campo tem conteúdo digitado
+   (truque do placeholder=" " combinado com :not(:placeholder-shown)) */
+input:not(:placeholder-shown):invalid,
+textarea:not(:placeholder-shown):invalid {
+    border-color: var(--color-error);
+}
+
+input:not(:placeholder-shown):valid,
+textarea:not(:placeholder-shown):valid {
+    border-color: var(--color-secondary);
+}
+
+/* ============================================================
+   COMPONENTES DE FEEDBACK — badges, alertas, toast, modal
+   ============================================================ */
+
+/* ===== Badges ===== */
+.badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-left: var(--space-2);
+    vertical-align: middle;
+}
+
+.badge-primary {
+    background-color: rgba(29, 78, 216, 0.12);
+    color: var(--color-primary);
+}
+
+.badge-secondary {
+    background-color: rgba(22, 163, 74, 0.12);
+    color: var(--color-secondary-dark);
+}
+
+.badge-accent {
+    background-color: rgba(245, 158, 11, 0.18);
+    color: #92400e;
+}
+
+/* ===== Alertas ===== */
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border-radius: 8px;
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-sm);
+}
+
+.alert-info {
+    background-color: rgba(29, 78, 216, 0.08);
+    border: 1px solid rgba(29, 78, 216, 0.25);
+    color: var(--color-primary-dark);
+}
+
+/* ===== Botão estilo link (aciona o modal) ===== */
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    padding: 0;
+    margin-top: var(--space-2);
+    display: inline-block;
+}
+
+.btn-link:hover {
+    color: var(--color-primary-dark);
+}
+
+/* ===== Toast (notificação não obstrutiva) ===== */
+.toast {
+    position: fixed;
+    bottom: var(--space-4);
+    right: var(--space-4);
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-white);
+    padding: var(--space-3) var(--space-4);
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    max-width: 320px;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+}
+
+.toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3);
+    z-index: 200;
+}
+
+.modal-overlay.is-open {
+    display: flex;
+}
+
+.modal-box {
+    background-color: var(--color-neutral-white);
+    border-radius: 10px;
+    padding: var(--space-5);
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-3);
+    background: none;
+    border: none;
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    color: var(--color-neutral-500);
+}
+
+.modal-close:hover {
+    color: var(--color-neutral-900);
+}
+
+/* ===== Link ativo no menu (indica em qual página o usuário está) ===== */
+.nav-menu a.active {
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+/* ===== Validação com feedback via JavaScript ===== */
+.campo-invalido {
+    border-color: var(--color-error) !important;
+}
+
+.campo-valido {
+    border-color: var(--color-secondary) !important;
+}
+
+.campo-erro {
+    display: block;
+    color: var(--color-error);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-1);
+}
+
+.alert-success {
+    background-color: rgba(22, 163, 74, 0.08);
+    border: 1px solid rgba(22, 163, 74, 0.25);
+    color: var(--color-secondary-dark);
+}

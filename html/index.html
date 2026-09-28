@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arise Social</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <h1>Arise Social</h1>
+            <p>Tecnologia também é oportunidade.</p>
+        </div>
+        <nav>
+            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+            <ul class="nav-menu">
+                <li><a href="#/" data-route>Início</a></li>
+                <li class="has-dropdown">
+                    <a href="#/projetos" data-route>Projetos</a>
+                    <ul class="dropdown">
+                        <li><a href="#/projetos">Recuperação de Equipamentos</a></li>
+                        <li><a href="#/projetos">Cursos de Informática</a></li>
+                        <li><a href="#/projetos">Primeiro PC</a></li>
+                    </ul>
+                </li>
+                <li><a href="#/cadastro" data-route>Cadastre-se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="app">
+        <!-- Conteúdo gerado dinamicamente pelo router.js -->
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Arise Social. Recuperar • Ensinar • Transformar.</p>
+    </footer>
+
+    <div class="modal-overlay" id="modal-sobre" aria-hidden="true">
+        <div class="modal-box" role="dialog" aria-labelledby="modal-sobre-titulo">
+            <button type="button" class="modal-close" data-modal-close aria-label="Fechar">&times;</button>
+            <h2 id="modal-sobre-titulo">Nossa Missão em Detalhe</h2>
+            <p>A Arise Social nasceu para reduzir a desigualdade digital, unindo empresas que descartam equipamentos, voluntários técnicos e comunidades que precisam de acesso à tecnologia. Cada computador recuperado carrega uma história de oportunidade renovada.</p>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Day.js — biblioteca externa para manipulação/formatação de datas -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/locale/pt-br.js"></script>
+
+    <script src="../js/modules/storage.js"></script>
+    <script src="../js/modules/templates.js"></script>
+    <script src="../js/modules/router.js"></script>
+    <script src="../js/modules/mascaras.js"></script>
+    <script src="../js/modules/validacao.js"></script>
+    <script src="../js/modules/modal.js"></script>
+    <script src="../js/modules/toast.js"></script>
+    <script src="../js/modules/nav.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
