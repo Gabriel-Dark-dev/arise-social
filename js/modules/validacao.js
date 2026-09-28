@@ -17,6 +17,8 @@ const regras = {
 
 function limparErro(campo) {
     campo.classList.remove("campo-invalido", "campo-valido");
+    campo.removeAttribute("aria-invalid");
+    campo.removeAttribute("aria-describedby");
     const erroExistente = campo.parentElement.querySelector(".campo-erro");
     if (erroExistente) erroExistente.remove();
 }
@@ -24,8 +26,19 @@ function limparErro(campo) {
 function marcarErro(campo, mensagem) {
     limparErro(campo);
     campo.classList.add("campo-invalido");
+
+    /* aria-invalid avisa o leitor de tela que o campo está com erro.
+       aria-describedby liga o campo ao texto do erro pelo id — sem
+       isso, um usuário de leitor de tela nunca ouviria a mensagem,
+       porque ela só aparece "visualmente" ao lado do campo. */
+    const idErro = campo.id + "-erro";
+    campo.setAttribute("aria-invalid", "true");
+    campo.setAttribute("aria-describedby", idErro);
+
     const span = document.createElement("span");
     span.className = "campo-erro";
+    span.id = idErro;
+    span.setAttribute("role", "alert");
     span.textContent = mensagem;
     campo.insertAdjacentElement("afterend", span);
 }
@@ -41,6 +54,7 @@ function validarCampo(campo) {
 
     limparErro(campo);
     campo.classList.add("campo-valido");
+    campo.setAttribute("aria-invalid", "false");
     return true;
 }
 

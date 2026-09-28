@@ -4,6 +4,17 @@
    ============================================================ */
 window.App = window.App || {};
 
+App.initSkipLink = function () {
+    const link = document.querySelector("[data-skip-link]");
+    if (!link) return;
+
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const alvo = document.getElementById("conteudo-principal") || document.getElementById("app");
+        if (alvo) alvo.focus();
+    });
+};
+
 App.initMenuToggle = function () {
     const botao = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".nav-menu");
