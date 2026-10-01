@@ -22,8 +22,11 @@ async function build() {
     let bundle = MODULOS.map((m) => fs.readFileSync(`js/modules/${m}.js`, "utf8")).join("\n");
     bundle += fs.readFileSync("js/main.js", "utf8");
 
-    /* 2) Ajusta caminhos de imagem para raiz absoluta (produção) */
-    bundle = bundle.replace(/\.\.\/imagens\//g, "/imagens/");
+    /* 2) Ajusta caminhos de imagem para relativo à raiz do dist
+          (NÃO absoluto "/imagens/" — o GitHub Pages publica projetos
+          num subcaminho, tipo /arise-social/, e um caminho absoluto
+          ignoraria esse subcaminho, causando 404 nas imagens) */
+    bundle = bundle.replace(/\.\.\/imagens\//g, "imagens/");
 
     /* 3) Minifica JS e CSS com esbuild */
     const jsMin = await esbuild.transform(bundle, { minify: true });
