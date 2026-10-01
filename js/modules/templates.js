@@ -10,10 +10,14 @@ window.App = window.App || {};
    recebe os dados e "monta" o card — é reaproveitamento de
    componente na prática. */
 function cardProjeto(dados) {
+    const nomeBase = dados.imagem.replace(/\.[a-z]+$/, "");
     return `
         <section class="col-4" id="${dados.id}">
             <h3>${dados.titulo} <span class="badge ${dados.badgeClasse}">${dados.badge}</span></h3>
-            <img src="../imagens/${dados.imagem}" alt="${dados.alt}">
+            <picture>
+                <source srcset="../imagens/${nomeBase}.WEBP" type="image/WEBP">
+                <img src="../imagens/${dados.imagem}" alt="${dados.alt}" loading="lazy" width="400" height="200">
+            </picture>
             <p>${dados.texto}</p>
         </section>
     `;
@@ -22,7 +26,10 @@ function cardProjeto(dados) {
 App.renderHome = function () {
     return `
         <div class="hero">
-            <img src="../imagens/hero.jpg" alt="Voluntário recuperando um notebook doado">
+            <picture>
+                <source srcset="../imagens/hero.WEBP" type="image/WEBP">
+                <img src="../imagens/hero.jpg" alt="Voluntário recuperando um notebook doado" loading="eager" width="900" height="350">
+            </picture>
         </div>
         <div class="grid">
             <section class="col-6">

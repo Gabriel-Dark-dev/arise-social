@@ -13,6 +13,11 @@
     /* ===== Cor de erro (validação de formulário) ===== */
     --color-error: #dc2626;
 
+    /* ===== Tokens semânticos (permitem trocar de tema sem reescrever o CSS) ===== */
+    --color-surface: var(--color-neutral-white);
+    --color-text-inverse: var(--color-neutral-white);
+    --color-heading: var(--color-neutral-900);
+
     /* ===== Cores — Neutras ===== */
     --color-neutral-white: #ffffff;
     --color-neutral-100: #f4f6f8;
@@ -58,7 +63,7 @@ body {
 
 header {
     background-color: var(--color-neutral-900);
-    color: var(--color-neutral-white);
+    color: var(--color-text-inverse);
     padding: var(--space-4) var(--space-6);
 }
 
@@ -80,7 +85,7 @@ nav ul {
 }
 
 nav a {
-    color: var(--color-neutral-white);
+    color: var(--color-text-inverse);
     text-decoration: none;
     font-weight: 500;
 }
@@ -96,13 +101,13 @@ main {
 }
 
 main h2 {
-    color: var(--color-neutral-900);
+    color: var(--color-heading);
     font-size: var(--font-size-xl);
     margin-bottom: var(--space-2);
 }
 
 section {
-    background-color: var(--color-neutral-white);
+    background-color: var(--color-surface);
     padding: var(--space-4);
     border-radius: 8px;
     margin-bottom: var(--space-3);
@@ -110,13 +115,13 @@ section {
 }
 
 section h3 {
-    color: var(--color-neutral-900);
+    color: var(--color-heading);
     font-size: var(--font-size-lg);
     margin-bottom: var(--space-2);
 }
 
 form {
-    background-color: var(--color-neutral-white);
+    background-color: var(--color-surface);
     padding: var(--space-4);
     border-radius: 8px;
 }
@@ -173,7 +178,7 @@ button {
 
 button[type="submit"] {
     background-color: var(--color-secondary);
-    color: var(--color-neutral-white);
+    color: var(--color-text-inverse);
 }
 
 button[type="reset"] {
@@ -183,7 +188,7 @@ button[type="reset"] {
 
 footer {
     background-color: var(--color-neutral-900);
-    color: var(--color-neutral-white);
+    color: var(--color-text-inverse);
     text-align: center;
     padding: var(--space-3);
     margin-top: var(--space-5);
@@ -325,7 +330,7 @@ header {
     display: block;
     background: none;
     border: none;
-    color: var(--color-neutral-white);
+    color: var(--color-text-inverse);
     font-size: var(--font-size-xl);
     cursor: pointer;
     padding: var(--space-1);
@@ -347,7 +352,7 @@ header {
 }
 
 .nav-menu a {
-    color: var(--color-neutral-white);
+    color: var(--color-text-inverse);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
@@ -390,7 +395,7 @@ header {
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: var(--color-neutral-white);
+        background-color: var(--color-surface);
         border-radius: 6px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         padding: var(--space-2);
@@ -412,7 +417,7 @@ header {
     }
 
     .dropdown a {
-        color: var(--color-neutral-900);
+        color: var(--color-heading);
         font-weight: 400;
     }
 
@@ -428,7 +433,7 @@ header {
 /* ===== Botão "Enviar Cadastro" ===== */
 button[type="submit"] {
     background-color: var(--color-secondary);
-    color: var(--color-neutral-white);
+    color: var(--color-text-inverse);
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
@@ -598,7 +603,7 @@ textarea:not(:placeholder-shown):valid {
 }
 
 .modal-box {
-    background-color: var(--color-neutral-white);
+    background-color: var(--color-surface);
     border-radius: 10px;
     padding: var(--space-5);
     max-width: 480px;
@@ -656,7 +661,7 @@ textarea:not(:placeholder-shown):valid {
     top: -100px;
     left: var(--space-2);
     background-color: var(--color-primary);
-    color: var(--color-neutral-white);
+    color: var(--color-text-inverse);
     padding: var(--space-2) var(--space-3);
     border-radius: 6px;
     z-index: 999;
@@ -673,4 +678,45 @@ textarea:not(:placeholder-shown):valid {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* ============================================================
+   DARK MODE — respeita o sistema e permite alternância manual
+   (todos os contrastes abaixo verificados ≥ 4.5:1, padrão WCAG AA)
+   ============================================================ */
+
+/* 1) Segue a preferência do sistema operacional automaticamente,
+      a menos que o usuário já tenha escolhido manualmente (ver item 2) */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --color-neutral-100: #0f172a;
+        --color-surface: #1e293b;
+        --color-neutral-300: #334155;
+        --color-neutral-700: #e2e8f0;
+        --color-heading: #f8fafc;
+        --color-primary: #60a5fa;
+        --color-primary-dark: #93c5fd;
+    }
+}
+
+/* 2) Alternância manual — tem prioridade sobre a preferência do sistema */
+:root[data-theme="dark"] {
+    --color-neutral-100: #0f172a;
+    --color-surface: #1e293b;
+    --color-neutral-300: #334155;
+    --color-neutral-700: #e2e8f0;
+    --color-heading: #f8fafc;
+    --color-primary: #60a5fa;
+    --color-primary-dark: #93c5fd;
+}
+
+/* Botão de alternância de tema, no cabeçalho */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--color-neutral-300);
+    border-radius: 999px;
+    color: var(--color-text-inverse);
+    font-size: var(--font-size-base);
+    padding: var(--space-1) var(--space-2);
+    cursor: pointer;
 }

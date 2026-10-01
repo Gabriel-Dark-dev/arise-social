@@ -7,3 +7,5 @@ App.initValidacao();
 App.initModal();
 App.initToastFormulario();
 App.initMenuToggle();
+App.initSkipLink();
+App.initTema();
