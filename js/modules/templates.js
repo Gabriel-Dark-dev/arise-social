@@ -15,7 +15,7 @@ function cardProjeto(dados) {
         <section class="col-4" id="${dados.id}">
             <h3>${dados.titulo} <span class="badge ${dados.badgeClasse}">${dados.badge}</span></h3>
             <picture>
-                <source srcset="../imagens/${nomeBase}.WEBP" type="image/WEBP">
+                <source srcset="../imagens/${nomeBase}.webp" type="image/webp">
                 <img src="../imagens/${dados.imagem}" alt="${dados.alt}" loading="lazy" width="400" height="200">
             </picture>
             <p>${dados.texto}</p>
@@ -27,7 +27,7 @@ App.renderHome = function () {
     return `
         <div class="hero">
             <picture>
-                <source srcset="../imagens/hero.WEBP" type="image/WEBP">
+                <source srcset="../imagens/hero.webp" type="image/webp">
                 <img src="../imagens/hero.jpg" alt="Voluntário recuperando um notebook doado" loading="eager" width="900" height="350">
             </picture>
         </div>
